@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#header img {
+    height: 50px;
+    width: auto;
+}
+nav button {
+    background-color: transparent;
+    color: snow;
+    border: none;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+nav button:hover {
+    background-color: cornflowerblue;
+}
+#navbar {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 70px;
+    background: linear-gradient(135deg, thistle, snow);
+    position: -webkit-sticky;
+    top: 0;
+    
+}
+h1 {
+    background-image: url('img/lavender.jpg') ;
+    background-size:cover;
+    color: rgb(40, 16, 72);
+    text-indent: 16px;
+    text-shadow: 2px 2px 8px thistle;
+    padding: 40px 24px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.885);
+}
+nav { 
+    margin-left: 32px;
+    display: flex;
+    gap: 4px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color:dimgray;
+    background-color:white;
+}
+section {
+    background-color:whitesmoke;
+    padding: 32px;
+    margin: 24px auto;
+    max-width: 960px;
+    border-radius: 6px;
+    border: 1px solid lavender;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.885);
+}
+.Faculty img {
+    float: left;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 8px;
+    margin-right: 12px;
+}
+
+.Faculty h3{color: snow;}
+.Faculty a {color: snow;}
+table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+th {
+    padding: 12px;
+    border-bottom: 1px solid #bbb;
+    color:dimgray;
+    text-align: left;
+}
+td {
+padding: 12px;
+border-bottom: 1px solid #bbb;
+color: dimgray;
+}
+#footer {
+    text-align: center;
+    padding: 20px;
+    background-color: thistle;
+    color: linen;
+}
+p{
+    padding: 14px;
+    margin-inline-start: 15px;
+}
+.layout{
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 24px;
+    align-items: flex-start;
+}
+.main {
+    flex: 2;
+    display:block;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.sidebar {
+    flex: 1.2
+    ;
+    background-color: thistle;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 16px;
+    color: snow;
+    position: sticky;
+    top:80px;
+    align-self: flex-start;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.885);
+}
+.sidebar h2 {
+    color: rgb(44, 21, 72);
+    font-size: 16px;
+    border-bottom: 4px solid snow;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid ghostwhite;
+    color:snow;
+    font-size: 16px;
+    line-height: 1.5
+}
+.sidebarleft {
+    flex: .8;
+    background-color: thistle;
+    border: 1px solid, ;
+    border-radius: 4px;
+    padding: 16px;
+    color: snow;
+    position:sticky;
+    top:80px;
+    align-self:baseline;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.885);
+}
+.sidebarleft h2 {
+    color: rgb(44, 21, 72);
+    font-size: 16px;
+    border-bottom: 4px solid snow;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
