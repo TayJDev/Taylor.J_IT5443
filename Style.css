@@ -31,11 +31,11 @@ nav button:hover {
     
 }
 h1 {
-    background-image: url('img/lavender.jpg') ;
+    background-image: url('img/lavender3.png') ;
     background-size:cover;
-    color: rgb(40, 16, 72);
+    color: rgb(246, 239, 255);
     text-indent: 16px;
-    text-shadow: 2px 2px 8px thistle;
+    text-shadow: 2px 2px 8px rgb(50, 39, 50);
     padding: 40px 24px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.885);
 }
@@ -49,16 +49,26 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color:dimgray;
-    background-color:white;
+    background-color:floralwhite;
 }
 section {
-    background-color:whitesmoke;
+    background-color:rgba(253, 249, 253, 0.903);
     padding: 32px;
     margin: 24px auto;
     max-width: 960px;
     border-radius: 6px;
     border: 1px solid lavender;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.885);
+}
+.eligibilityForm {
+    background-image: url('img/lavender2.png');
+    background-size: cover;
+    
+
+}
+.eligibilityForm input[type="radio"]
+{
+    accent-color:rgb(186, 152, 207);
 }
 .Faculty img {
     float: left;
@@ -163,4 +173,38 @@ p{
     border-bottom: 4px solid snow;
     padding-bottom: 8px;
     margin-bottom: 16px;
+}
+#checkbttn {
+    background-color: rgb(243, 230, 250);
+    color: rgb(93, 84, 117);
+    border: .1px solid;
+    padding: 8px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.485);
+}
+.seeMore{
+    background-color: snow;
+    color: rgb(93, 84, 117);
+    padding: 8px 16px;
+    border: 1px solid lavender;
+    cursor: pointer;
+    border-radius: 7px;
+}
+select {
+    background-color: rgb(243, 230, 250);
+    color: rgb(93, 84, 117);
+    border: .2px solid;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.485);
+}
+#result{
+padding: 16px;
+margin-top: 12px;
+border-radius: 6px;
+font-size: 1.1 rem;
+color rgb (40,16,72);
+
 }
