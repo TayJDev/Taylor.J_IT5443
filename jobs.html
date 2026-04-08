@@ -1,0 +1,268 @@
+<html>
+    <head>
+        <head> <link rel="stylesheet" href="Style.css"> </head>
+        <script type="text/javascript">
+            
+            function calculateGPA(courseName) {
+                var grades = document.getElementsByName(courseName);
+                for (var i = 0; i < grades.length; i++)
+                {
+                    if (grades[i].checked)
+                        {
+                        return parseInt(grades[i].value);
+                        }
+                }
+                return 0;
+            }
+
+            function studentEligibility()
+            {
+                var level = document.getElementById('level').value;
+
+                var undergrad = document.getElementById('undergradQuiz');
+                var grad = document.getElementById('gradQuiz');
+
+                if (level === 'Graduate') 
+                {
+                    grad.style.display = 'block';
+                    undergrad.style.display = 'none';
+                } 
+                else if (level === 'Undergraduate')
+                {
+                    grad.style.display = 'none';
+                    undergrad.style.display = 'block'; 
+                }
+                else 
+                {
+                    undergrad.style.display = 'none';
+                    grad.style.display = 'none'
+                }
+            }
+                function checkEligibility()
+                {
+                    var level = document.getElementById('level').value;
+                    var courses = [];
+                    var total= 0;
+
+                    if (level === "Undergraduate")
+                    {
+                        
+                        courses = ["CSE3203","IT4213","CSE4384","CSPSY3100","CSAI3800"];
+                        for (var i = 0; i < courses.length; i++) 
+                        {
+                            total += calculateGPA(courses[i]);
+                        }
+                        var gpa = total / courses.length;
+                            if (gpa>= 3.2)
+                            {
+                                document.getElementById('result').innerHTML= "Eligible! GPA:" + gpa.toFixed(2) + "<a href = 'application.html'> Apply Here </a>";
+                            }
+                            else {
+                                document.getElementById('result').innerHTML= "Ineligible! GPA:" + gpa.toFixed(2);
+                            }
+                    }
+                    else if (level === "Graduate")
+                    {
+                        courses = ["IT7113","IT6713","PSYIT7000","IT6888"];
+                        for (var i = 0; i < courses.length; i++) 
+                        {
+                            total += calculateGPA(courses[i]);
+                        }
+                        var gpa = total / courses.length;
+                            if (gpa>= 3.7)
+                            {
+                                document.getElementById('result').innerHTML= "Eligible! GPA:" + gpa.toFixed(2) + "<a href = 'application.html'> Apply Here </a>";
+                            }
+                            else {
+                                document.getElementById('result').innerHTML= "Ineligible! GPA:" + gpa.toFixed(2);
+                            }
+                    }
+                    else 
+                    {
+                        alert("Entrez votre classification s'il vous plaît.");
+                        return;
+                    }
+
+
+                }
+            
+
+        </script>
+
+    </head>
+    <body>
+        
+        <div id="navbar">
+            <div id="header">
+                <a href="https://campus.kennesaw.edu/colleges-departments/ccse/academics/information-technology/index.php">
+                <img src="img/Blacklogo.png"> </a>
+                
+            </div>
+            <nav> 
+                <a href="index.html"><button>Home</button></a>
+                <a href="AboutUs.html"><button>About Us</button></a>
+                <a href="Resources.html"><button>Resources</button></a>
+                <a href="application.html"><button>CARIT Application</button></a>
+                
+            </nav>
+    </div>
+        </div>
+        <h1> Student Eligibility</h1>
+        <div class="layout">
+        <div class="sidebarLeft">
+            <h2>
+                Botanical Ipsum
+            </h2>
+            <p>Rosa canina climbing through the trellis of forgotten afternoons, petals of Lavandula angustifolia drifting across sun-warmed stone. The Helleborus niger blooms in shadow where nothing else dares, while Digitalis purpurea stands sentinel along the garden wall. Jasmine traces the iron gate with white insistence. Wisteria remembers every spring it has survived. Chamomile spreads low and unbothered across the path, releasing its apple-scent underfoot. The Passiflora unfurls like a mechanical clock, precise and otherworldly. Magnolia grandiflora holds its blooms like offerings. Somewhere, a Banksia rattles in the coastal wind, ancient and unbothered by time.</p>
+        </div>
+        <div class="main">
+            <section>
+                <h2>KSU & CARIT: Opening Doors for the Next Generation of Tech Leaders</h2>
+                <p>Kennesaw State University has long positioned itself as a university of opportunity, and nowhere is that more visible than through the Center for Applied Research in Information Technology (CARIT). Designed to bridge the gap between classroom learning and real-world experience, CARIT offers students hands-on research positions, collaborative projects with industry partners, and a launchpad for careers in data, cybersecurity, web development, and beyond.
+            
+                </p>
+
+               <p>Student assistant positions at CARIT are more than just resume builders - they are immersive experiences that place students alongside faculty researchers tackling real problems. Whether analyzing data pipelines, developing web tools, or contributing to ongoing studies, CARIT students graduate with a portfolio that speaks for itself.
+            </p> 
+
+                <p>Beyond paid positions, KSU encourages students to engage through volunteer and service-learning opportunities embedded across its colleges. From tech outreach programs in the greater Atlanta metro area to open-source contribution initiatives, there is no shortage of ways to get involved. KSU's commitment to access means that opportunity is not reserved for the few - it is engineered into the institution itself.</p>
+            </section>
+
+            <section>
+                <h2>CARIT OPPORTUNITY</h2>
+                <p>The summer is coming and CARIT has four student assistant positions open (not real!). In order to be
+                    considered for such a position, a student has to complete some required courses and meet the minimum
+                    average grade (of these required classes) requirement. See the table below.</p>
+                <label for="level">Select your classification:</label>
+                <select id="level" onchange="studentEligibility()">
+                <option value=""></option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Graduate">Graduate</option>
+                </select>
+
+            <div id="undergradQuiz" style="display:none;">
+                <section class="eligibilityForm">
+                
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>CSE 3203 Mobile System Overview</td>
+                            <td><label>A</label><input type="radio" name="CSE3203" value="4"></td>
+                            <td><label>B</label><input type="radio" name="CSE3203" value="3"></td>
+                            <td><label>C</label><input type="radio" name="CSE3203" value="2"></td>
+                            <td><label>D</label><input type="radio" name="CSE3203" value="1"></td>
+                            <td><label>F</label><input type="radio" name="CSE3203" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>IT 4213 Mobile Web Development</td>
+                            <td><label>A</label><input type="radio" name="IT4213" value="4"></td>
+                            <td><label>B</label><input type="radio" name="IT4213" value="3"></td>
+                            <td><label>C</label><input type="radio" name="IT4213" value="2"></td>
+                            <td><label>D</label><input type="radio" name="IT4213" value="1"></td>
+                            <td><label>F</label><input type="radio" name="IT4213" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>CSE 4384 iOS Development with Swift</td>
+                            <td><label>A</label><input type="radio" name="CSE4384" value="4"></td>
+                            <td><label>B</label><input type="radio" name="CSE4384" value="3"></td>
+                            <td><label>C</label><input type="radio" name="CSE4384" value="2"></td>
+                            <td><label>D</label><input type="radio" name="CSE4384" value="1"></td>
+                            <td><label>F</label><input type="radio" name="CSE4384" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>CSPSY 3100 The Psychology of Technology </td>
+                            <td><label>A</label><input type="radio" name="CSPSY3100" value="4"></td>
+                            <td><label>B</label><input type="radio" name="CSPSY3100" value="3"></td>
+                            <td><label>C</label><input type="radio" name="CSPSY3100" value="2"></td>
+                            <td><label>D</label><input type="radio" name="CSPSY3100" value="1"></td>
+                            <td><label>F</label><input type="radio" name="CSPSY3100" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>CSAI 3800 Advanced AI and Computing</td>
+                            <td><label>A</label><input type="radio" name="CSAI3800" value="4"></td>
+                            <td><label>B</label><input type="radio" name="CSAI3800" value="3"></td>
+                            <td><label>C</label><input type="radio" name="CSAI3800" value="2"></td>
+                            <td><label>D</label><input type="radio" name="CSAI3800" value="1"></td>
+                            <td><label>F</label><input type="radio" name="CSAI3800" value="0"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            </div>
+            <div id="gradQuiz" style="display:none;">
+                <section class="eligibilityForm">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>IT 7113 Data Visualization</td>
+                                <td><label>A</label><input type="radio" name="IT7113" value="4"></td>
+                                <td><label>B</label><input type="radio" name="IT7113" value="3"></td>
+                                <td><label>C</label><input type="radio" name="IT7113" value="2"></td>
+                                <td><label>D</label><input type="radio" name="IT7113" value="1"></td>
+                                <td><label>F</label><input type="radio" name="IT7113" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>IT 6713 Business Intelligence</td>
+                                <td><label>A</label><input type="radio" name="IT6713" value="4"></td>
+                                <td><label>B</label><input type="radio" name="IT6713" value="3"></td>
+                                <td><label>C</label><input type="radio" name="IT6713" value="2"></td>
+                                <td><label>D</label><input type="radio" name="IT6713" value="1"></td>
+                                <td><label>F</label><input type="radio" name="IT6713" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>PSYIT 7000 Human Hacking and Technology</td>
+                                <td><label>A</label><input type="radio" name="PSYIT7000" value="4"></td>
+                                <td><label>B</label><input type="radio" name="PSYIT7000" value="3"></td>
+                                <td><label>C</label><input type="radio" name="PSYIT7000" value="2"></td>
+                                <td><label>D</label><input type="radio" name="PSYIT7000" value="1"></td>
+                                <td><label>F</label><input type="radio" name="PSYIT7000" value="0"></td>
+                            </tr>
+                            <tr>
+                                <td>IT 6888 </td>
+                                <td><label>A</label><input type="radio" name="IT6888" value="4"></td>
+                                <td><label>B</label><input type="radio" name="IT6888" value="3"></td>
+                                <td><label>C</label><input type="radio" name="IT6888" value="2"></td>
+                                <td><label>D</label><input type="radio" name="IT6888" value="1"></td>
+                                <td><label>F</label><input type="radio" name="IT6888" value="0"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+            </div>
+            <button id ="checkBttn" onclick="checkEligibility()">Check Eligibility</button>
+            <div id="result">
+            </div>
+        </div>
+    
+    
+        <div class="sidebar">
+            <h2>MIT Technology Review - Plant Futures</h2>
+                <p>
+                Researchers used algorithmic 3D modeling to visualize how flowers will physically change in response to climate data between now and 2100 - petal color, size, UV pigment and more shifting based on real projections...
+                </p>
+                <a href="https://www.technologyreview.com/2025/10/20/1125345/plant-future-climate-change-research-project/"><button class="seeMore">View Full Article</button></a>
+
+            <h2>Cold Spring Harbor Laboratory - CRISPR & Flowers</h2>
+                <p>
+                Scientists used CRISPR gene editing to uncover how non-coding DNA sequences control when and how flowers bloom, with potential applications for crop breeding...
+                </p>
+                <a href="https://www.cshl.edu/crispr-manipulates-plants-flower-powers/">
+                    <button class="seeMore">View Full Article</button></a>
+                
+                <h2>Cyborg Botany: Augmented plants as sensors, displays, and actuators</h2>
+                <p>Researchers at MIT are exploring "Cyborg Botany" - merging living plants with electronic technology. Plants already communicate through color, moisture, and position, and even carry internal electrochemical signals similar to circuits. The project taps into these natural capabilities to create organic interfaces that move human-computer interaction off screens and back into the natural world.</p>
+                <a href="https://www.media.mit.edu/projects/cyborg-botany/overview/">
+                    <button class="seeMore">
+                        View Full Article
+                    </button>
+                </a>
+
+        </div>
+        </div>
+    <div id="footer">
+        KSU Project for <a href="https://github.com/TayJDev/Taylor.J_IT5443.git"> IT5443! </a>
+       </div>
+    </body>
+</html>
